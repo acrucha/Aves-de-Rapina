@@ -26,7 +26,14 @@ Baseado no jogo Flappy Bird e programado utilizando Lua e Love2D.
 
 ```
 
-3. Compile e rode o jogo:
+3. Entre na pasta "Aves-de-Rapina"
+
+```
+    cd Aves-de-Rapina
+
+```
+
+4. Compile e rode o jogo:
 
 ```
     love .
