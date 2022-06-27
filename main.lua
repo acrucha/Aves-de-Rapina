@@ -16,6 +16,7 @@ require 'src/states/PlayState'
 require 'src/states/ScoreState'
 require 'src/states/CountdownState'
 require 'src/states/TitleScreenState'
+require 'src/states/BirdSelectionState'
 
 
 WINDOW_WIDTH = 1280
@@ -48,6 +49,8 @@ local GROUND_LOOPING_POINT = 512
 
 local scrolling = true
 
+bird = 1
+
 function love.load()
 
     --love.graphics.setDefaultFilter('nearest', 'nearest')
@@ -75,6 +78,13 @@ function love.load()
     sounds['music']:setLooping(true) -- musica vai ficar tocando infinitamente
     sounds['music']:play()
 
+    birds = {
+        ['black'] = love.graphics.newImage('src/assets/bird2.png'),
+        ['darkPurple'] = love.graphics.newImage('src/assets/bird1.png'),
+        ['pink'] = love.graphics.newImage('src/assets/bird3.png'),
+        ['joker'] = love.graphics.newImage('src/assets/joker.png')
+    }
+
     math.randomseed(os.time())
 
     push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
@@ -87,7 +97,8 @@ function love.load()
         ['title'] = function() return TitleScreenState() end, -- retorna a tela title 
         ['play'] = function() return PlayState() end, -- retorna a tela play
         ['score'] = function() return ScoreState() end,
-        ['contdown'] = function() return CountdownState() end
+        ['contdown'] = function() return CountdownState() end,
+        ['bird'] = function() return BirdSelectionState() end
     }
     gStateMachine:change('title') -- mudo para a tela que eu quiser
 
@@ -104,10 +115,6 @@ function love.keypressed(key)
     -- existe para fazer a checagem caso alguma tecla for apertada
     if key == 'escape' then
         love.event.quit()
-    else 
-        if key == 'enter' then
-            pause:loop()
-        end
     end
 
 end

@@ -22,6 +22,12 @@ end
 
 function PlayState:update(dt)
 
+    if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
+        sounds['explosion']:play()
+        sounds['hurt']:play()
+        gStateMachine:change('title')
+    end
+
     self.timer = self.timer + dt
 
     if self.score == 15 and pipeSpawn > 3 then
@@ -118,7 +124,7 @@ function PlayState:render()
     love.graphics.setFont(mediumFont)
     love.graphics.printf('Score: ' .. tostring(self.score), 10, 220, VIRTUAL_WIDTH, 'left')
     love.graphics.setFont(smallFont)
-    love.graphics.printf('Pressione P para pausar', 10, 250, VIRTUAL_WIDTH, 'left')
+    love.graphics.printf('Pressione P para pausar e Enter para voltar ao menu inicial', 10, 250, VIRTUAL_WIDTH, 'left')
 
 
     self.bird:render()

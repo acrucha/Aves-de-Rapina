@@ -6,7 +6,7 @@ local logo = love.graphics.newImage('src/assets/logo.png')
 
 function TitleScreenState:update(dt)
     if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
-        gStateMachine:change('contdown')
+        gStateMachine:change('bird')
     end
 end
 
