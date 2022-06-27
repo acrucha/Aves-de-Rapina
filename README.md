@@ -9,7 +9,15 @@ Baseado no jogo Flappy Bird e programado utilizando Lua e Love2D.
 </p>
 
 <p align="center">
+  <img src="/img/select-canary.png" alt="tela de seleção" width=70%/>
+</p>
+
+<p align="center">
   <img src="/img/game.png" alt="tela do jogo" width=70%/>
+</p>
+
+<p align="center">
+  <img src="/img/you-lost.png" alt="tela Você Perdeu" width=70%/>
 </p>
 
 ## Como jogar?
